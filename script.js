@@ -33,7 +33,9 @@ const menuData = {
     ["Watermelon Milk Boba", 150, 180]
   ],
   "Ice-Cream": [
-    ["Mix flavor", 55, ,85 ,115]
+    ["Mix flavor One Ball", 55],
+    ["Mix flavor Tow Balls", 85],
+    ["Mix flavor Three Balls", 115]
   ],
   "Milkshake": [
     ["Strawberry Milkshake", 140, 165],
@@ -169,6 +171,7 @@ function sendWhatsApp() {
   const phone = "201019634984";
   window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 }
+
 
 
 
