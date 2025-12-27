@@ -37,7 +37,7 @@ const menuData = {
   ],
   "Milkshake": [
     ["Strawberry Milkshake", 140, 165],
-    ["chocolate Milkshake", 140, 165],
+    ["Chocolate Milkshake", 140, 165],
     ["Vanilla Milkshake", 140, 165],
     ["Oreo Milkshake", 140, 165],
     ["Raspberry Milkshake", 140, 165],
@@ -80,7 +80,7 @@ const menuData = {
     ["Fresh Strawberry", 85],
     ["Orange Juice", 85],
     ["Lemon Mint", 85],
-    ["Banana Milkshake", 85]
+    ["Banana With Milk", 85]
   ]
 };
 
@@ -168,4 +168,5 @@ function sendWhatsApp() {
   const phone = "201019634984";
   window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 }
+
 
