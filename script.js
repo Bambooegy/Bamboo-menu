@@ -1,4 +1,3 @@
-// menuData القديم
 const menuData = {
   "Coffee Boba": [
     ["Iced Latte Boba", 150, 180],
@@ -33,14 +32,11 @@ const menuData = {
     ["Strawberry Milk Boba", 150, 180],
     ["Watermelon Milk Boba", 150, 180]
   ],
-
-  // الأصناف الجديدة التي لم تكن موجودة
   "Ice-Cream": [
     ["Mix flavor", 55, 115]
   ],
   "Milkshake": [
     ["Strawberry Milkshake", 140, 165]
-    // Raspberry Milkshake غير منشور
   ],
   "Iced Coffee": [
     ["Iced Latte", 125],
@@ -77,3 +73,88 @@ const menuData = {
     ["Banana Milkshake", 85]
   ]
 };
+
+const menu = document.getElementById("menu");
+const cartItems = document.getElementById("cartItems");
+let cart = [];
+
+/* Render Menu */
+for (const category in menuData) {
+  const section = document.createElement("section");
+  section.innerHTML = `<h2>${category}</h2>`;
+
+  menuData[category].forEach(item => {
+    const [name, price1, price2] = item;
+    const div = document.createElement("div");
+    div.className = "item";
+
+    if (price2) {
+      div.innerHTML = `
+        <strong>${name}</strong>
+        <div class="prices">
+          <button onclick="addToCart('${name}', ${price1}, 'Small')">
+            Small – ${price1} EGP
+          </button>
+          <button onclick="addToCart('${name}', ${price2}, 'Large')">
+            Large – ${price2} EGP
+          </button>
+        </div>
+      `;
+    } else {
+      div.innerHTML = `
+        <strong>${name}</strong>
+        <button onclick="addToCart('${name}', ${price1}, '')">
+          ${price1} EGP
+        </button>
+      `;
+    }
+
+    section.appendChild(div);
+  });
+
+  menu.appendChild(section);
+}
+
+/* Cart */
+function addToCart(name, price, size) {
+  cart.push({ name, price, size });
+  renderCart();
+}
+
+function renderCart() {
+  cartItems.innerHTML = "";
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      ${item.name} ${item.size ? "(" + item.size + ")" : ""} – ${item.price} EGP
+      <span onclick="removeItem(${index})">✕</span>
+    `;
+    cartItems.appendChild(li);
+  });
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+/* WhatsApp */
+function sendWhatsApp() {
+  if (cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
+
+  let message = "🧋 Bamboo Order%0A%0A";
+  let total = 0;
+
+  cart.forEach(item => {
+    message += `• ${item.name} ${item.size ? "(" + item.size + ")" : ""} – ${item.price} EGP%0A`;
+    total += item.price;
+  });
+
+  message += `%0A💰 Total: ${total} EGP`;
+
+  const phone = "201XXXXXXXXX"; // ضع رقم واتساب هنا
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
