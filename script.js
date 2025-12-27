@@ -5,7 +5,7 @@ const menuData = {
     ["Spanish Latte Boba", 155, 185]
   ],
   "Popping Boba": [
-    ["Red Bull Popping Boba", 150, 175],
+    ["Red Bull Popping Boba", 150, 180],
     ["Popping Boba Fruit Tea", 130, 160]
   ],
   "Milk Tea Boba": [
@@ -33,10 +33,16 @@ const menuData = {
     ["Watermelon Milk Boba", 150, 180]
   ],
   "Ice-Cream": [
-    ["Mix flavor", 55, 115]
+    ["Mix flavor", 55, ,85 ,115]
   ],
   "Milkshake": [
-    ["Strawberry Milkshake", 140, 165]
+    ["Strawberry Milkshake", 140, 165],
+    ["chocolate Milkshake", 140, 165],
+    ["Vanilla Milkshake", 140, 165],
+    ["Oreo Milkshake", 140, 165],
+    ["Raspberry Milkshake", 140, 165],
+    ["Blueberry yogurt Milkshake", 140, 165],
+    ["Mango Milkshake", 140, 165]
   ],
   "Iced Coffee": [
     ["Iced Latte", 125],
@@ -49,21 +55,25 @@ const menuData = {
     ["Blueberry Cheesecake", 120]
   ],
   "Hot Drinks": [
-    ["Espresso", 60],
+    ["Espresso", 65],
     ["Double Espresso", 85],
-    ["Americano", 75],
+    ["Americano", 80],
     ["Cappuccino", 95],
     ["Caffè Latte", 95],
     ["Spanish Latte", 110],
     ["Macchiato", 95],
     ["Cortado", 95],
     ["French Coffee", 85],
+    ["Hazelnut Coffee", 95],
+    ["Tea With Milk", 75],
+    ["Black Nescafe", 85],
     ["Flat White", 95],
     ["Mocha", 95],
     ["Turkish Coffee", 70],
-    ["Black Tea", 45],
+    ["Double Turkish Coffee", 95],
+    ["Black Tea", 55],
     ["Green Tea", 55],
-    ["Hot Chocolate", 110]
+    ["Hot Chocolate", 120]
   ],
   "Fresh Juices": [
     ["Fresh Mango", 85],
@@ -155,6 +165,7 @@ function sendWhatsApp() {
 
   message += `%0A💰 Total: ${total} EGP`;
 
-  const phone = "201XXXXXXXXX"; // ضع رقم واتساب هنا
+  const phone = "201019634984";
   window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 }
+
