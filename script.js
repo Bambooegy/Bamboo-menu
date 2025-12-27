@@ -155,7 +155,8 @@ function sendWhatsApp() {
     return;
   }
 
-  let message = "🧋 Bamboo Order%0A%0A";
+  let message = "Hello Bamboo Team 👋%0A%0A"
+            + "I would like to place the following order:%0A%0A";
   let total = 0;
 
   cart.forEach(item => {
@@ -168,5 +169,6 @@ function sendWhatsApp() {
   const phone = "201019634984";
   window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 }
+
 
 
