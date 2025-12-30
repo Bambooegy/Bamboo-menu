@@ -108,3 +108,6 @@ I would like to place the following order:
 
   window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
 }
+
+}
+}
