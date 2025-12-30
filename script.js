@@ -2,7 +2,7 @@ const menu = document.getElementById("menu");
 const cartItems = document.getElementById("cartItems");
 let cart = [];
 
-/* ===== Render Menu With Images ===== */
+/* ==== Render Menu With Images ==== */
 for (const category in menuData) {
   const section = document.createElement("section");
   section.innerHTML = `<h2>${category}</h2>`;
@@ -108,3 +108,4 @@ I would like to place the following order:
 
   window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
 }
+
