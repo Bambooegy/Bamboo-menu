@@ -38,6 +38,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  transition: transform 0.25s ease;
 }
 
 .item button {
@@ -106,43 +107,32 @@ h2 {
   border-radius: 8px;
 }
 
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 22px;
-  }
-  .item img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-  /* Images inside menu items */
+/* ===== Images & Hover ===== */
 .item img {
   width: 100%;
-  height: 180px;              /* مقاس موحّد */
+  height: 180px;              
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect */
 .item:hover img {
   transform: scale(1.04);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
-/* Smooth card hover */
-.item {
-  transition: transform 0.25s ease;
 }
 
 .item:hover {
   transform: translateY(-2px);
 }
 
-
-}
-
-
+/* ===== Responsive for Mobile ===== */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 22px;
   }
+
+  .item img {
+    height: 160px;
+  }
+}
