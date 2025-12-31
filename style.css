@@ -12,10 +12,28 @@ header {
   text-align: center;
 }
 
-h1, h2, h4, p { margin: 5px 0; }
+h1, h2, p {
+  margin: 6px 0;
+}
 
-main { padding-bottom: 220px; }
+main {
+  padding-bottom: 240px;
+}
 
+/* Categories */
+section {
+  margin-bottom: 24px;
+}
+
+section h2 {
+  margin: 16px 12px 8px;
+  font-size: 20px;
+  color: #0f5132;
+  border-left: 5px solid #0f5132;
+  padding-left: 10px;
+}
+
+/* Items */
 .item {
   background: white;
   border-radius: 12px;
@@ -28,6 +46,22 @@ main { padding-bottom: 220px; }
   transition: transform 0.25s ease;
 }
 
+.item:hover {
+  transform: translateY(-2px);
+}
+
+.item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.item strong {
+  font-size: 16px;
+}
+
+/* Buttons */
 .item button {
   background: #0f5132;
   color: white;
@@ -36,7 +70,11 @@ main { padding-bottom: 220px; }
   padding: 10px;
   cursor: pointer;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
+}
+
+.item button:active {
+  transform: scale(0.97);
 }
 
 .prices {
@@ -47,9 +85,9 @@ main { padding-bottom: 220px; }
 .prices button {
   flex: 1;
   font-size: 14px;
-  padding: 8px;
 }
 
+/* Cart */
 .cart {
   position: fixed;
   bottom: 0;
@@ -57,8 +95,9 @@ main { padding-bottom: 220px; }
   right: 0;
   background: white;
   border-top: 2px solid #eee;
-  padding: 10px;
+  padding: 12px;
   box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 #cartItems {
@@ -67,7 +106,6 @@ main { padding-bottom: 220px; }
   margin: 10px 0;
   max-height: 160px;
   overflow-y: auto;
-  scroll-behavior: smooth;
 }
 
 #cartItems li {
@@ -94,29 +132,13 @@ main { padding-bottom: 220px; }
   background: #25D366;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 14px;
   width: 100%;
   font-size: 16px;
   border-radius: 8px;
 }
 
-/* Images */
-.item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.item:hover img {
-  transform: scale(1.04);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
-.item:hover { transform: translateY(-2px); cursor: pointer; }
-
+/* Responsive */
 @media (max-width: 600px) {
   header h1 { font-size: 22px; }
   .item img { height: 160px; }
