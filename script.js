@@ -12,7 +12,7 @@ const menuData = {
   "Iced Coffee":[["Iced Latte",125,null,"iced-latte.jpg"],["Iced Spanish Latte",135,null,"iced-spanish-latte.jpg"],["Iced Americano",90,null,"iced-americano.jpg"]],
   "Desserts":[["Walnut & Caramel Cheesecake",120,null,"walnut-caramel-cheesecake.jpg"],["Lotus Cheesecake",120,null,"lotus-cheesecake.jpg"],["Blueberry Cheesecake",120,null,"blueberry-cheesecake.jpg"]],
   "Hot Drinks":[["Espresso",60,null,"espresso.jpg"],["Double Espresso",85,null,"double-espresso.jpg"],["Americano",75,null,"americano.jpg"],["Cappuccino",95,null,"cappuccino.jpg"],["Caffè Latte",95,null,"latte.jpg"],["Spanish Latte",110,null,"spanish-latte.jpg"],["Macchiato",95,null,"macchiato.jpg"],["Cortado",95,null,"cortado.jpg"],["French Coffee",85,null,"french-coffee.jpg"],["Flat White",95,null,"flat-white.jpg"],["Mocha",95,null,"mocha.jpg"],["Turkish Coffee",70,null,"turkish-coffee.jpg"],["Black Tea",45,null,"black-tea.jpg"],["Green Tea",55,null,"green-tea.jpg"],["Hot Chocolate",110,null,"hot-chocolate.jpg"]],
-  "Fresh Juices":[["Fresh Mango",85,null,"fresh-mango.jpg"],["Fresh Strawberry",85,null,"fresh-strawberry.jpg"],["Orange Juice",85,null,"orange-juice.jpg"],["Lemon Mint",85,null,"lemon-mint.jpg"],["Banana Milkshake",85,null,"banana-milkshake.jpg"]]
+  "Fresh Juices":[["Fresh Mango",85,null,"fresh-mango.jpg"],["Fresh Strawberry",85,null,"fresh-strawberry.jpg"],["Orange Juice",85,null,"orange-juice.jpg"],["Lemon Mint",85,null,"lemon-mint.jpg"],["Banana With Milk",85,null,"banana-milkshake.jpg"]]
 };
 
 /* ================= ELEMENTS ================= */
@@ -117,3 +117,4 @@ function sendWhatsApp(){
 
 /* ================= INIT ================= */
 renderMenu();
+
