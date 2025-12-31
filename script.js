@@ -1,3 +1,5 @@
+/* ================= MENU DATA ================= */
+
 const menuData = {
 
   "Coffee Boba": [
@@ -86,3 +88,118 @@ const menuData = {
   ]
 
 };
+
+/* ================= ELEMENTS ================= */
+
+const menu = document.getElementById("menu");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+
+let cart = [];
+
+/* ================= RENDER MENU ================= */
+
+function renderMenu() {
+  for (const category in menuData) {
+    const section = document.createElement("section");
+    section.innerHTML = `<h2>${category}</h2>`;
+
+    menuData[category].forEach(item => {
+      const [name, price1, price2, image] = item;
+      const div = document.createElement("div");
+      div.className = "item";
+
+      const imagePath = `images/${image || "default.jpg"}`;
+
+      div.innerHTML = `
+        <img src="${imagePath}" alt="${name}" onerror="this.src='images/default.jpg'">
+        <strong>${name}</strong>
+
+        ${
+          price2
+            ? `<div class="prices">
+                <button onclick="addToCart('${name}', ${price1}, 'Small')">
+                  Small – ${price1} EGP
+                </button>
+                <button onclick="addToCart('${name}', ${price2}, 'Large')">
+                  Large – ${price2} EGP
+                </button>
+              </div>`
+            : `<button onclick="addToCart('${name}', ${price1}, '')">
+                ${price1} EGP
+              </button>`
+        }
+      `;
+
+      section.appendChild(div);
+    });
+
+    menu.appendChild(section);
+  }
+}
+
+/* ================= CART ================= */
+
+function addToCart(name, price, size) {
+  const existing = cart.find(i => i.name === name && i.size === size);
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({ name, price, size, quantity: 1 });
+  }
+
+  renderCart();
+}
+
+function renderCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price * item.quantity;
+
+    const li = document.createElement("li");
+    li.innerHTML = `
+      ${item.name} ${item.size ? "(" + item.size + ")" : ""} x${item.quantity}
+      <span onclick="removeItem(${index})">✕</span>
+    `;
+    cartItems.appendChild(li);
+  });
+
+  cartTotal.textContent = `Total: ${total} EGP`;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+/* ================= WHATSAPP ================= */
+
+function sendWhatsApp() {
+  if (cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
+
+  let message = "Hello Bamboo Team 👋\nI would like to order:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    message += `• ${item.name} ${item.size ? "(" + item.size + ")" : ""} x${item.quantity}\n`;
+    total += item.price * item.quantity;
+  });
+
+  message += `\nTotal: ${total} EGP`;
+
+  const phone = "201019634984";
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+}
+
+/* ================= INIT ================= */
+
+renderMenu();
