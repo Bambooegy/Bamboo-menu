@@ -36,7 +36,7 @@ function renderMenu() {
         <img src="${imagePath}" alt="${name}" onerror="this.src='images/default.jpg'">
         <strong>${name}</strong>
         ${price2?`<div class="prices">
-          <button onclick="addToCart('${name}',${price1},'Small')">Small – ${price1} EGP</button>
+          <button onclick="addToCart('${name}',${price1},'Medium')">Medium – ${price1} EGP</button>
           <button onclick="addToCart('${name}',${price2},'Large')">Large – ${price2} EGP</button>
         </div>`:`<button onclick="addToCart('${name}',${price1},'')">${price1} EGP</button>`}
       `;
@@ -117,5 +117,6 @@ function sendWhatsApp(){
 
 /* ================= INIT ================= */
 renderMenu();
+
 
 
