@@ -1,45 +1,100 @@
 /* ================= MENU DATA ================= */
 
 const menuData = {
-  "Coffee Boba":[["Iced Latte Boba",150,180,"iced-latte-boba.jpg"],["Dalgona Boba",170,195,"dalgona-boba.jpg"],["Spanish Latte Boba",155,185,"spanish-latte-boba.jpg"]],
-  "Popping Boba":[["Red Bull Popping Boba",150,175,"red-bull-popping-boba.jpg"],["Popping Boba Fruit Tea",130,160,"popping-boba-fruit-tea.jpg"]],
-  "Milk Tea Boba":[["Classic Boba",120,155,"classic-boba.jpg"],["Brown Sugar Milk Boba",135,165,"brown-sugar-boba.jpg"]],
-  "Taro Boba":[["Classic Taro",150,180,"taro-boba.jpg"],["Brown Sugar Taro Boba",160,185,"brown-sugar-taro-boba.jpg"]],
-  "Matcha Boba":[["Matcha Boba",155,185,"matcha-boba.jpg"],["Brown Sugar Matcha",165,185,"brown-sugar-matcha.jpg"],["Strawberry Matcha Latte Boba",175,190,"strawberry-matcha-boba.jpg"]],
-  "Milk Boba":[["Oreo Milk Boba",160,195,"oreo-milk-boba.jpg"],["Lotus Milk Boba",160,195,"lotus-milk-boba.jpg"],["Chocolate Milk Boba",155,190,"chocolate-milk-boba.jpg"],["Caramel Milk Boba",155,190,"caramel-milk-boba.jpg"],["Red Velvet Milk Boba",160,195,"red-velvet-milk-boba.jpg"],["Mango Milk Boba",150,180,"mango-milk-boba.jpg"],["Blueberry Milk Boba",150,180,"blueberry-milk-boba.jpg"],["Strawberry Milk Boba",150,180,"strawberry-milk-boba.jpg"],["Watermelon Milk Boba",150,180,"watermelon-milk-boba.jpg"]],
-  "Ice Cream":[["Mix Flavor Ice Cream","One Ball"55,"2 Balls"85,"3 Balls"115,"mix-flavor-one-ball.jpg"]],
-  "Milkshake":[["Strawberry Milkshake",140,165,"strawberry-milkshake.jpg"]],
-  "Iced Coffee":[["Iced Latte",125,null,"iced-latte.jpg"],["Iced Spanish Latte",135,null,"iced-spanish-latte.jpg"],["Iced Americano",90,null,"iced-americano.jpg"]],
-  "Desserts":[["Walnut & Caramel Cheesecake",120,null,"walnut-caramel-cheesecake.jpg"],["Lotus Cheesecake",120,null,"lotus-cheesecake.jpg"],["Blueberry Cheesecake",120,null,"blueberry-cheesecake.jpg"]],
-  "Hot Drinks":[["Espresso",60,null,"espresso.jpg"],["Double Espresso",85,null,"double-espresso.jpg"],["Americano",75,null,"americano.jpg"],["Cappuccino",95,null,"cappuccino.jpg"],["Caffè Latte",95,null,"latte.jpg"],["Spanish Latte",110,null,"spanish-latte.jpg"],["Macchiato",95,null,"macchiato.jpg"],["Cortado",95,null,"cortado.jpg"],["French Coffee",85,null,"french-coffee.jpg"],["Flat White",95,null,"flat-white.jpg"],["Mocha",95,null,"mocha.jpg"],["Turkish Coffee",70,null,"turkish-coffee.jpg"],["Black Tea",45,null,"black-tea.jpg"],["Green Tea",55,null,"green-tea.jpg"],["Hot Chocolate",110,null,"hot-chocolate.jpg"]],
-  "Fresh Juices":[["Fresh Mango",85,null,"fresh-mango.jpg"],["Fresh Strawberry",85,null,"fresh-strawberry.jpg"],["Orange Juice",85,null,"orange-juice.jpg"],["Lemon Mint",85,null,"lemon-mint.jpg"],["Banana With Milk",85,null,"banana-milkshake.jpg"]]
+  "Coffee Boba":[
+    ["Iced Latte Boba",150,180,"iced-latte-boba.jpg"],
+    ["Dalgona Boba",170,195,"dalgona-boba.jpg"],
+    ["Spanish Latte Boba",155,185,"spanish-latte-boba.jpg"]
+  ],
+  "Popping Boba":[
+    ["Red Bull Popping Boba",150,175,"red-bull-popping-boba.jpg"],
+    ["Popping Boba Fruit Tea",130,160,"popping-boba-fruit-tea.jpg"]
+  ],
+  "Milkshake":[
+    ["Strawberry Milkshake",140,165,"strawberry-milkshake.jpg"]
+  ],
+  "Hot Drinks":[
+    ["Espresso",60,null,"espresso.jpg"],
+    ["Cappuccino",95,null,"cappuccino.jpg"],
+    ["Hot Chocolate",110,null,"hot-chocolate.jpg"]
+  ]
 };
 
 /* ================= ELEMENTS ================= */
+
 const menu = document.getElementById("menu");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 const tabsContainer = document.getElementById("tabs");
 let cart = [];
+let images = [];
+let current = 0;
+
+/* ================= IMAGE MODAL ================= */
+
+const modal = document.createElement("div");
+modal.style.cssText = `
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+`;
+modal.innerHTML = `<img id="modalImg" style="max-width:90%;max-height:90%;border-radius:12px">`;
+document.body.appendChild(modal);
+
+const modalImg = modal.querySelector("img");
+
+modal.onclick = () => modal.style.display = "none";
+
+let startX = 0;
+modalImg.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+modalImg.addEventListener("touchend", e => {
+  const diff = startX - e.changedTouches[0].clientX;
+  if(diff > 50) nextImg();
+  if(diff < -50) prevImg();
+});
+
+function showImg(i){
+  current = i;
+  modalImg.src = images[i];
+  modal.style.display = "flex";
+}
+function nextImg(){ showImg((current+1)%images.length); }
+function prevImg(){ showImg((current-1+images.length)%images.length); }
 
 /* ================= RENDER MENU ================= */
-function renderMenu() {
-  for(const category in menuData){
-    const section = document.createElement("section");
-    section.innerHTML=`<h2>${category}</h2>`;
-    menuData[category].forEach(item=>{
-      const [name,price1,price2,image]=item;
+
+function renderMenu(){
+  menu.innerHTML="";
+  images=[];
+
+  for(const cat in menuData){
+    const section=document.createElement("section");
+    section.innerHTML=`<h2>${cat}</h2>`;
+
+    menuData[cat].forEach(item=>{
+      const [name,p1,p2,img]=item;
+      const path=`images/${img}`;
+      images.push(path);
+      const idx=images.length-1;
+
       const div=document.createElement("div");
       div.className="item";
-      const imagePath=`images/${image||"default.jpg"}`;
       div.innerHTML=`
-        <img src="${imagePath}" alt="${name}" onerror="this.src='images/default.jpg'">
+        <img src="${path}">
         <strong>${name}</strong>
-        ${price2?`<div class="prices">
-          <button onclick="addToCart('${name}',${price1},'Medium')">Medium – ${price1} EGP</button>
-          <button onclick="addToCart('${name}',${price2},'Large')">Large – ${price2} EGP</button>
-        </div>`:`<button onclick="addToCart('${name}',${price1},'')">${price1} EGP</button>`}
+        ${p2?
+          `<div class="prices">
+            <button onclick="addToCart('${name}',${p1},'Medium')">Medium ${p1}</button>
+            <button onclick="addToCart('${name}',${p2},'Large')">Large ${p2}</button>
+          </div>`
+          :
+          `<button onclick="addToCart('${name}',${p1},'')">${p1} EGP</button>`
+        }
       `;
+      div.querySelector("img").onclick=()=>showImg(idx);
       section.appendChild(div);
     });
     menu.appendChild(section);
@@ -47,77 +102,54 @@ function renderMenu() {
 }
 
 /* ================= TABS ================= */
-for(const category in menuData){
-  const tab=document.createElement("div");
-  tab.className="tab"; tab.textContent=category;
-  tab.addEventListener("click",()=>{
-    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-    tab.classList.add("active");
-    document.querySelectorAll("section").forEach(sec=>{
-      sec.style.display=sec.querySelector("h2").textContent===category?"grid":"none";
+
+for(const cat in menuData){
+  const t=document.createElement("div");
+  t.className="tab";
+  t.textContent=cat;
+  t.onclick=()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");
+    document.querySelectorAll("section").forEach(s=>{
+      s.style.display=s.querySelector("h2").textContent===cat?"grid":"none";
     });
-  });
-  tabsContainer.appendChild(tab);
+  };
+  tabsContainer.appendChild(t);
 }
-document.querySelector(".tab")?.click();
-
-/* ================= BEST SELLER ================= */
-const bestSellers=["Iced Latte Boba","Red Bull Popping Boba","Strawberry Milkshake"];
-document.querySelectorAll(".item").forEach(item=>{
-  const name=item.querySelector("strong").textContent;
-  if(bestSellers.includes(name)){
-    const span=document.createElement("span");
-    span.className="best-seller"; span.textContent="⭐ Best Seller";
-    item.querySelector("strong").appendChild(span);
-  }
-});
-
-/* ================= SEARCH ================= */
-document.getElementById("search").addEventListener("input",e=>{
-  const term=e.target.value.toLowerCase();
-  document.querySelectorAll(".item").forEach(item=>{
-    const name=item.querySelector("strong").textContent.toLowerCase();
-    item.style.display=name.includes(term)?"flex":"none";
-  });
-});
+setTimeout(()=>document.querySelector(".tab").click(),50);
 
 /* ================= CART ================= */
+
 function addToCart(name,price,size){
-  const existing=cart.find(i=>i.name===name&&i.size===size);
-  existing?existing.quantity++:cart.push({name,price,size,quantity:1});
+  const i=cart.find(x=>x.name===name&&x.size===size);
+  i?i.q++:cart.push({name,price,size,q:1});
   renderCart();
 }
 function renderCart(){
   cartItems.innerHTML="";
   let total=0;
-  cart.forEach((item,index)=>{
-    total+=item.price*item.quantity;
+  cart.forEach((i,idx)=>{
+    total+=i.price*i.q;
     const li=document.createElement("li");
-    li.innerHTML=`${item.name} ${item.size?`(${item.size})`:``} x${item.quantity}
-      <span onclick="removeItem(${index})">✕</span>`;
+    li.innerHTML=`${i.name} ${i.size} x${i.q}
+      <span onclick="cart.splice(${idx},1);renderCart()">✕</span>`;
     cartItems.appendChild(li);
   });
   cartTotal.textContent=`Total: ${total} EGP`;
 }
-function removeItem(index){cart.splice(index,1);renderCart();}
 
-/* ================= WHATSAPP ================= */
 function sendWhatsApp(){
-  if(cart.length===0){alert("Your cart is empty");return;}
-  let message="Hello Bamboo Team 👋\nI would like to order:\n\n";
+  if(!cart.length) return alert("Cart empty");
+  let msg="Order:\n";
   let total=0;
-  cart.forEach(item=>{
-    message+=`• ${item.name} ${item.size?`(${item.size})`:``} x${item.quantity}\n`;
-    total+=item.price*item.quantity;
+  cart.forEach(i=>{
+    msg+=`${i.name} ${i.size} x${i.q}\n`;
+    total+=i.price*i.q;
   });
-  message+=`\nTotal: ${total} EGP`;
-  const phone="201019634984";
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,"_blank");
+  msg+=`Total: ${total} EGP`;
+  window.open(`https://wa.me/201019634984?text=${encodeURIComponent(msg)}`);
 }
 
 /* ================= INIT ================= */
+
 renderMenu();
-
-
-
-
