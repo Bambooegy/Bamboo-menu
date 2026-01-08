@@ -7,7 +7,7 @@ const menuData = {
   "Taro Boba":[["Classic Taro",150,180,"taro-boba.jpg"],["Brown Sugar Taro Boba",160,185,"brown-sugar-taro-boba.jpg"]],
   "Matcha Boba":[["Matcha Boba",155,185,"matcha-boba.jpg"],["Brown Sugar Matcha",165,185,"brown-sugar-matcha.jpg"],["Strawberry Matcha Latte Boba",175,190,"strawberry-matcha-boba.jpg"]],
   "Milk Boba":[["Oreo Milk Boba",160,195,"oreo-milk-boba.jpg"],["Lotus Milk Boba",160,195,"lotus-milk-boba.jpg"],["Chocolate Milk Boba",155,190,"chocolate-milk-boba.jpg"],["Caramel Milk Boba",155,190,"caramel-milk-boba.jpg"],["Red Velvet Milk Boba",160,195,"red-velvet-milk-boba.jpg"],["Mango Milk Boba",150,180,"mango-milk-boba.jpg"],["Blueberry Milk Boba",150,180,"blueberry-milk-boba.jpg"],["Strawberry Milk Boba",150,180,"strawberry-milk-boba.jpg"],["Watermelon Milk Boba",150,180,"watermelon-milk-boba.jpg"]],
-  "Ice Cream":[["Mix Flavor Ice Cream",55,115,"mix-ice-cream.jpg"]],
+  "Ice Cream":[["Mix Flavor Ice Cream","One Ball"55,"2 Balls"85,"3 Balls"115,"mix-flavor-one-ball.jpg"]],
   "Milkshake":[["Strawberry Milkshake",140,165,"strawberry-milkshake.jpg"]],
   "Iced Coffee":[["Iced Latte",125,null,"iced-latte.jpg"],["Iced Spanish Latte",135,null,"iced-spanish-latte.jpg"],["Iced Americano",90,null,"iced-americano.jpg"]],
   "Desserts":[["Walnut & Caramel Cheesecake",120,null,"walnut-caramel-cheesecake.jpg"],["Lotus Cheesecake",120,null,"lotus-cheesecake.jpg"],["Blueberry Cheesecake",120,null,"blueberry-cheesecake.jpg"]],
@@ -117,6 +117,7 @@ function sendWhatsApp(){
 
 /* ================= INIT ================= */
 renderMenu();
+
 
 
 
