@@ -14,37 +14,26 @@ header {
 
 h1, h2, p { margin: 5px 0; }
 
-#search {
-  width: 90%;
-  max-width: 400px;
-  padding: 8px 12px;
-  margin: 8px auto 12px;
-  display: block;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
-
 .tabs {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto;
   gap: 8px;
   justify-content: center;
-  margin: 12px 0;
+  padding: 10px 0;
 }
 
 .tab {
   background: #0f5132;
   color: white;
   padding: 8px 16px;
-  border-radius: 12px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: 0.2s;
-  font-size: 14px;
+  white-space: nowrap;
 }
 
-.tab:hover { background: #145c3b; }
-.tab.active { background: #25d366; color: white; }
+.tab.active {
+  background: #25d366;
+}
 
 main { padding-bottom: 220px; }
 
@@ -63,25 +52,17 @@ section {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: transform 0.25s ease;
 }
 
 .item img {
   width: 100%;
-  height: auto;          /* مهم */
-  max-height: 220px;     /* حد أقصى اختياري */
-  object-fit: contain;  /* يعرض الصورة كاملة */
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
   border-radius: 12px;
-  background: #f5f5f5;  /* خلفية لطيفة لو الصورة أصغر */
+  background: #f5f5f5;
+  cursor: zoom-in;
 }
-
-
-.item:hover img {
-  transform: scale(1.04);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
-.item:hover { transform: translateY(-2px); cursor: pointer; }
 
 .item button {
   background: #0f5132;
@@ -90,20 +71,15 @@ section {
   border-radius: 8px;
   padding: 10px;
   cursor: pointer;
-  width: 100%;
-  font-size: 16px;
 }
 
-.prices { display: flex; gap: 8px; }
-.prices button { flex: 1; font-size: 14px; padding: 8px; }
+.prices {
+  display: flex;
+  gap: 8px;
+}
 
-.best-seller {
-  background: #FFD700;
-  color: #0f5132;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 6px;
-  margin-left: 6px;
+.prices button {
+  flex: 1;
 }
 
 .cart {
@@ -114,36 +90,23 @@ section {
   background: white;
   border-top: 2px solid #eee;
   padding: 10px;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
 }
 
 #cartItems {
   list-style: none;
   padding: 0;
-  margin: 10px 0;
   max-height: 160px;
   overflow-y: auto;
-  scroll-behavior: smooth;
 }
 
 #cartItems li {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  padding: 6px 0;
-  border-bottom: 1px dashed #ddd;
 }
 
 #cartItems span {
   cursor: pointer;
   color: red;
-  font-size: 18px;
-}
-
-#cartTotal {
-  font-weight: bold;
-  margin-bottom: 8px;
 }
 
 .cart button {
@@ -152,8 +115,5 @@ section {
   border: none;
   padding: 12px;
   width: 100%;
-  font-size: 16px;
   border-radius: 8px;
 }
-
-
