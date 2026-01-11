@@ -68,7 +68,7 @@ const menuData = {
     ["Turkish Coffee",70,null,"turkish-coffee.jpg"],
     ["Black Tea",45,null,"black-tea.jpg"],
     ["Green Tea",55,null,"green-tea.jpg"],
-    ["Hot Chocolate",110,null,"hot-chocolate.jpg"]
+    ["Hot Chocolate",120,null,"hot-chocolate.jpg"]
   ],
   "Fresh Juices":[
     ["Fresh Mango",85,null,"fresh-mango.jpg"],
@@ -209,3 +209,4 @@ function sendWhatsApp(){
 
 /* ================= INIT ================= */
 renderMenu();
+
