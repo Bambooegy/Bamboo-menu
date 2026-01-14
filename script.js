@@ -48,11 +48,11 @@ const menuData = {
     ["Iced Spanish Latte",135,null,"iced-spanish-latte.jpg"],
     ["Iced Americano",90,null,"iced-americano.jpg"]
   ],
-  "Desserts":[
+  //"Desserts":[
     ["Walnut & Caramel Cheesecake",120,null,"walnut-caramel-cheesecake.jpg"],
     ["Lotus Cheesecake",120,null,"lotus-cheesecake.jpg"],
     ["Blueberry Cheesecake",120,null,"blueberry-cheesecake.jpg"]
-  ],
+  ],//
   "Hot Drinks":[
     ["Espresso",60,null,"espresso.jpg"],
     ["Double Espresso",85,null,"double-espresso.jpg"],
@@ -209,5 +209,6 @@ function sendWhatsApp(){
 
 /* ================= INIT ================= */
 renderMenu();
+
 
 
