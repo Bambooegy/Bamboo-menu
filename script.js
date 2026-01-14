@@ -38,7 +38,7 @@ const menuData = {
       { label:"1 Scoop", price:55 },
       { label:"2 Scoops", price:85 },
       { label:"3 Scoops", price:115 }
-    ],"mix-flavor-ice-cream.jpg"]
+    ],"mix-flavor-one-ball..jpg"]
   ],
   "Milkshake":[
     ["Strawberry Milkshake",140,165,"strawberry-milkshake.jpg"]
@@ -209,4 +209,5 @@ function sendWhatsApp(){
 
 /* ================= INIT ================= */
 renderMenu();
+
 
