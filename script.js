@@ -20,7 +20,7 @@ const menuData = {
   "Matcha Boba":[
     ["Matcha Boba",155,185,"matcha-boba.jpg"],
     ["Brown Sugar Matcha",165,185,"brown-sugar-matcha.jpg"],
-    ["Strawberry Matcha Latte Boba",175,190,"strawberry-matcha-boba.jpg"]
+    ["Strawberry Matcha Latte Boba",175,190,"strawberry-matcha-latte-boba.jpg"]
   ],
   "Milk Boba":[
     ["Oreo Milk Boba",160,195,"oreo-milk-boba.jpg"],
@@ -217,4 +217,5 @@ function sendWhatsApp(){
 /* ================= INIT ================= */
 renderMenu();
 renderCart();
+
 
