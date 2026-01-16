@@ -6,7 +6,7 @@ const menuData = {
     ["Spanish Latte Boba",155,185,"spanish-latte-boba.jpg"]
   ],
   "Popping Boba":[
-    ["Red Bull Popping Boba",150,175,"red-bull-popping-boba.jpg"],
+    ["Red Bull Popping Boba",150,180,"red-bull-popping-boba.jpg"],
     ["Popping Boba Fruit Tea",130,160,"popping-boba-fruit-tea.jpg"]
   ],
   "Milk Tea Boba":[
@@ -223,6 +223,7 @@ function sendWhatsApp(){
 /* ================= INIT ================= */
 renderMenu();
 renderCart();
+
 
 
 
