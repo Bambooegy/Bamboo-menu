@@ -28,12 +28,12 @@ h1, h2, p { margin: 5px 0; }
   padding: 8px 16px;
   border-radius: 12px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: .2s;
   font-size: 14px;
 }
 
 .tab:hover { background: #145c3b; }
-.tab.active { background: #25d366; color: white; }
+.tab.active { background: #25d366; }
 
 main { padding-bottom: 220px; }
 
@@ -45,6 +45,7 @@ section {
 }
 
 .item {
+  position: relative;
   background: white;
   border-radius: 12px;
   padding: 12px;
@@ -52,24 +53,18 @@ section {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: transform 0.25s ease;
+  transition: transform .25s ease;
 }
+
+.item:hover { transform: translateY(-2px); }
 
 .item img {
   width: 100%;
-  height: auto;
   max-height: 220px;
   object-fit: contain;
   border-radius: 12px;
   background: #f5f5f5;
 }
-
-.item:hover img {
-  transform: scale(1.04);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
-.item:hover { transform: translateY(-2px); cursor: pointer; }
 
 .item button {
   background: #0f5132;
@@ -78,12 +73,11 @@ section {
   border-radius: 8px;
   padding: 10px;
   cursor: pointer;
-  width: 100%;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .prices { display: flex; gap: 8px; }
-.prices button { flex: 1; font-size: 14px; padding: 8px; }
+.prices button { flex: 1; font-size: 14px; }
 
 .best-seller {
   background: #FFD700;
@@ -94,6 +88,18 @@ section {
   margin-left: 6px;
 }
 
+.new-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff3b3b;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
 .cart {
   position: fixed;
   bottom: 0;
@@ -102,36 +108,26 @@ section {
   background: white;
   border-top: 2px solid #eee;
   padding: 10px;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
 }
 
 #cartItems {
   list-style: none;
   padding: 0;
-  margin: 10px 0;
   max-height: 160px;
   overflow-y: auto;
-  scroll-behavior: smooth;
 }
 
 #cartItems li {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  padding: 6px 0;
   border-bottom: 1px dashed #ddd;
+  padding: 6px 0;
 }
 
 #cartItems span {
   cursor: pointer;
   color: red;
   font-size: 18px;
-}
-
-#cartTotal {
-  font-weight: bold;
-  margin-bottom: 8px;
 }
 
 .cart button {
@@ -143,3 +139,17 @@ section {
   font-size: 16px;
   border-radius: 8px;
 }
+
+#toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f5132;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: .3s;
+}
+#toast.show { opacity: 1; }
