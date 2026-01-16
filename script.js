@@ -162,21 +162,40 @@ function renderMenu(){
 }
 
 /* ================= TABS ================= */
-for(const category in menuData){
-  const tab = document.createElement("div");
-  tab.className = "tab";
-  tab.textContent = category;
-  tab.onclick = ()=>{
-    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-    tab.classList.add("active");
-    document.querySelectorAll("section").forEach(sec=>{
-      sec.style.display =
-        sec.querySelector("h2").textContent === category ? "grid" : "none";
-    });
-  };
-  tabsContainer.appendChild(tab);
+function renderTabs() {
+  const allCategories = ["Best Seller","New", ...Object.keys(menuData)];
+
+  allCategories.forEach(category=>{
+    const tab = document.createElement("div");
+    tab.className = "tab";
+    tab.textContent = category;
+
+    tab.onclick = ()=>{
+      document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+      tab.classList.add("active");
+
+      document.querySelectorAll("section").forEach(sec=>{
+        if(category === "Best Seller"){
+          sec.style.display = [...sec.querySelectorAll(".item")].some(i=>{
+            return bestSellers.includes(i.querySelector("strong").childNodes[0].nodeValue.trim());
+          }) ? "grid" : "none";
+        } else if(category === "New"){
+          sec.style.display = [...sec.querySelectorAll(".item")].some(i=>{
+            return newItems.includes(i.querySelector("strong").childNodes[0].nodeValue.trim());
+          }) ? "grid" : "none";
+        } else {
+          sec.style.display = sec.querySelector("h2").textContent === category ? "grid" : "none";
+        }
+      });
+    };
+
+    tabsContainer.appendChild(tab);
+  });
+
+  document.querySelector(".tab")?.click();
 }
-document.querySelector(".tab")?.click();
+
+
 
 /* ================= CART ================= */
 function addToCart(name,price,size){
@@ -227,6 +246,7 @@ function sendWhatsApp(){
 /* ================= INIT ================= */
 renderMenu();
 renderCart();
+
 
 
 
