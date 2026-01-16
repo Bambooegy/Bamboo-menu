@@ -14,7 +14,7 @@ const menuData = {
     ["Brown Sugar Milk Boba",135,165,"brown-sugar-boba.jpg"]
   ],
   "Taro Boba":[
-    ["Classic Taro",150,180,"taro-boba.jpg"],
+    ["Classic Taro",150,180,"classic-taro.jpg"],
     ["Brown Sugar Taro Boba",160,185,"brown-sugar-taro-boba.jpg"]
   ],
   "Matcha Boba":[
@@ -217,3 +217,4 @@ function sendWhatsApp(){
 /* ================= INIT ================= */
 renderMenu();
 renderCart();
+
