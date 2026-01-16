@@ -71,6 +71,7 @@ const menuData = {
     ["Black Tea",55,null,"black-tea.jpg"],
     ["Milk Tea",75,null,"Milk-Tea.jpg"],
     ["Karak Tea",85,null,"karak-Tea.jpg"],
+    ["Sahlab",85,null,"sahlab.jpg"], 
     ["Green Tea",55,null,"green-tea.jpg"],
     ["Hot Chocolate",120,null,"hot-chocolate.jpg"]
   ],
@@ -226,6 +227,7 @@ function sendWhatsApp(){
 /* ================= INIT ================= */
 renderMenu();
 renderCart();
+
 
 
 
