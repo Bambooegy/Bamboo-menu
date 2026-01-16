@@ -55,19 +55,21 @@ const menuData = {
     ["Iced Americano",90,null,"iced-americano.jpg"]
   ],
   "Hot Drinks":[
-    ["Espresso",60,null,"espresso.jpg"],
+    ["Espresso",65,null,"espresso.jpg"],
     ["Double Espresso",85,null,"double-espresso.jpg"],
-    ["Americano",75,null,"americano.jpg"],
+    ["Americano",80,null,"americano.jpg"],
     ["Cappuccino",95,null,"cappuccino.jpg"],
     ["Caffè Latte",95,null,"latte.jpg"],
     ["Spanish Latte",110,null,"spanish-latte.jpg"],
     ["Macchiato",95,null,"macchiato.jpg"],
     ["Cortado",95,null,"cortado.jpg"],
     ["French Coffee",85,null,"french-coffee.jpg"],
-    ["Flat White",95,null,"flat-white.jpg"],
+    ["Hazelnut Coffee",95,null,"Hazelnut-Coffee.jpg"],
+    ["Flat White",85,null,"flat-white.jpg"],
     ["Mocha",95,null,"mocha.jpg"],
     ["Turkish Coffee",70,null,"turkish-coffee.jpg"],
-    ["Black Tea",45,null,"black-tea.jpg"],
+    ["Black Tea",55,null,"black-tea.jpg"],
+    ["Milk Tea",75,null,"Milk-Tea.jpg"],
     ["Green Tea",55,null,"green-tea.jpg"],
     ["Hot Chocolate",120,null,"hot-chocolate.jpg"]
   ],
@@ -223,6 +225,7 @@ function sendWhatsApp(){
 /* ================= INIT ================= */
 renderMenu();
 renderCart();
+
 
 
 
