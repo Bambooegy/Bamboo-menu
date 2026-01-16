@@ -73,7 +73,7 @@ const menuData = {
     ["Karak Tea",85,null,"karak-tea.jpg"],
     ["Sahlab",85,null,"sahlab.jpg"], 
     ["Green Tea",55,null,"green-tea.jpg"],
-    ["Hot Chocolate",120,160,null,"hot-chocolate.jpg"]
+    ["Hot Chocolate",120,160,"hot-chocolate.jpg"]
   ],
   "Fresh Juices":[
     ["Fresh Mango",85,null,"fresh-mango.jpg"],
@@ -246,6 +246,7 @@ function sendWhatsApp(){
 /* ================= INIT ================= */
 renderMenu();
 renderCart();
+
 
 
 
