@@ -1,4 +1,4 @@
-/* ================= DATA ================= */
+/* ================= MENU DATA ================= */
 const menuData = {
   "Coffee Boba":[
     ["Iced Latte Boba",150,180,"iced-latte-boba.jpg"],
@@ -13,34 +13,88 @@ const menuData = {
     ["Classic Boba",120,155,"classic-boba.jpg"],
     ["Brown Sugar Milk Boba",135,165,"brown-sugar-boba.jpg"]
   ],
+  "Taro Boba":[
+    ["Classic Taro",150,180,"taro-boba.jpg"],
+    ["Brown Sugar Taro Boba",160,185,"brown-sugar-taro-boba.jpg"]
+  ],
   "Matcha Boba":[
     ["Matcha Boba",155,185,"matcha-boba.jpg"],
+    ["Brown Sugar Matcha",165,185,"brown-sugar-matcha.jpg"],
     ["Strawberry Matcha Latte Boba",175,190,"strawberry-matcha-boba.jpg"]
   ],
   "Milk Boba":[
+    ["Oreo Milk Boba",160,195,"oreo-milk-boba.jpg"],
+    ["Lotus Milk Boba",160,195,"lotus-milk-boba.jpg"],
+    ["Chocolate Milk Boba",155,190,"chocolate-milk-boba.jpg"],
+    ["Caramel Milk Boba",155,190,"caramel-milk-boba.jpg"],
     ["Red Velvet Milk Boba",160,195,"red-velvet-milk-boba.jpg"],
-    ["Oreo Milk Boba",160,195,"oreo-milk-boba.jpg"]
+    ["Mango Milk Boba",150,180,"mango-milk-boba.jpg"],
+    ["Blueberry Milk Boba",150,180,"blueberry-milk-boba.jpg"],
+    ["Strawberry Milk Boba",150,180,"strawberry-milk-boba.jpg"],
+    ["Watermelon Milk Boba",150,180,"watermelon-milk-boba.jpg"]
   ],
   "Ice Cream":[
     ["Mix Flavor Ice Cream",[
-      {label:"1 Scoop",price:55},
-      {label:"2 Scoops",price:85},
-      {label:"3 Scoops",price:115}
+      { label:"1 Scoop", price:55 },
+      { label:"2 Scoops", price:85 },
+      { label:"3 Scoops", price:115 }
     ],"mix-flavor-one-ball.jpg"]
+  ],
+  "Milkshake":[
+    ["Strawberry Milkshake",140,165,"strawberry-milkshake.jpg"]
+  ],
+  "Iced Coffee":[
+    ["Iced Latte",125,null,"iced-latte.jpg"],
+    ["Iced Spanish Latte",135,null,"iced-spanish-latte.jpg"],
+    ["Iced Americano",90,null,"iced-americano.jpg"]
+  ],
+  "Hot Drinks":[
+    ["Espresso",60,null,"espresso.jpg"],
+    ["Double Espresso",85,null,"double-espresso.jpg"],
+    ["Americano",75,null,"americano.jpg"],
+    ["Cappuccino",95,null,"cappuccino.jpg"],
+    ["Caffè Latte",95,null,"latte.jpg"],
+    ["Spanish Latte",110,null,"spanish-latte.jpg"],
+    ["Macchiato",95,null,"macchiato.jpg"],
+    ["Cortado",95,null,"cortado.jpg"],
+    ["French Coffee",85,null,"french-coffee.jpg"],
+    ["Flat White",95,null,"flat-white.jpg"],
+    ["Mocha",95,null,"mocha.jpg"],
+    ["Turkish Coffee",70,null,"turkish-coffee.jpg"],
+    ["Black Tea",45,null,"black-tea.jpg"],
+    ["Green Tea",55,null,"green-tea.jpg"],
+    ["Hot Chocolate",120,null,"hot-chocolate.jpg"]
+  ],
+  "Fresh Juices":[
+    ["Fresh Mango",85,null,"fresh-mango.jpg"],
+    ["Fresh Strawberry",85,null,"fresh-strawberry.jpg"],
+    ["Orange Juice",85,null,"orange-juice.jpg"],
+    ["Lemon Mint",85,null,"lemon-mint.jpg"],
+    ["Banana With Milk",85,null,"banana-milkshake.jpg"]
   ]
 };
 
-const bestSellers = ["Iced Latte Boba","Red Bull Popping Boba"];
-const newItems = ["Red Velvet Milk Boba","Strawberry Matcha Latte Boba"];
+/* ================= BADGES ================= */
+const bestSellers = [
+  "Iced Latte Boba",
+  "Red Bull Popping Boba",
+  "Strawberry Milkshake"
+];
 
+const newItems = [
+  "Strawberry Matcha Latte Boba",
+  "Red Velvet Milk Boba"
+];
+
+/* ================= ELEMENTS ================= */
 const menu = document.getElementById("menu");
-const tabs = document.getElementById("tabs");
+const tabsContainer = document.getElementById("tabs");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 
 let cart = JSON.parse(localStorage.getItem("bambooCart")) || [];
 
-/* ================= MENU ================= */
+/* ================= RENDER MENU ================= */
 function renderMenu(){
   const fragment = document.createDocumentFragment();
 
@@ -50,64 +104,74 @@ function renderMenu(){
 
     menuData[category].forEach(item=>{
       const div = document.createElement("div");
-      div.className="item";
+      div.className = "item";
 
       if(Array.isArray(item[1])){
-        const [name,options,image]=item;
-        div.innerHTML=`
-          <img src="images/${image}" loading="lazy">
+        const [name, options, image] = item;
+        div.innerHTML = `
+          <img src="images/${image}" loading="lazy" onerror="this.src='images/default.jpg'">
           <strong>${name}</strong>
           <div class="prices">
-            ${options.map(o=>`<button onclick="addToCart('${name}',${o.price},'${o.label}')">${o.label} – ${o.price}</button>`).join("")}
-          </div>`;
+            ${options.map(o=>`
+              <button onclick="addToCart('${name}',${o.price},'${o.label}')">
+                ${o.label} – ${o.price} EGP
+              </button>
+            `).join("")}
+          </div>
+        `;
       } else {
-        const [name,p1,p2,image]=item;
-        div.innerHTML=`
-          <img src="images/${image}" loading="lazy">
+        const [name,p1,p2,image] = item;
+        div.innerHTML = `
+          <img src="images/${image}" loading="lazy" onerror="this.src='images/default.jpg'">
           <strong>${name}</strong>
-          ${p2?`
-            <div class="prices">
-              <button onclick="addToCart('${name}',${p1},'M')">M – ${p1}</button>
-              <button onclick="addToCart('${name}',${p2},'L')">L – ${p2}</button>
-            </div>`:
-            `<button onclick="addToCart('${name}',${p1},'')">${p1} EGP</button>`}
+          ${
+            p2
+              ? `<div class="prices">
+                  <button onclick="addToCart('${name}',${p1},'Medium')">Medium – ${p1}</button>
+                  <button onclick="addToCart('${name}',${p2},'Large')">Large – ${p2}</button>
+                </div>`
+              : `<button onclick="addToCart('${name}',${p1},'')">${p1} EGP</button>`
+          }
         `;
       }
 
-      const title = div.querySelector("strong").textContent;
-      if(bestSellers.includes(title))
-        div.querySelector("strong").innerHTML+=`<span class="best-seller">⭐ Best</span>`;
-      if(newItems.includes(title))
-        div.innerHTML+=`<span class="new-badge">NEW</span>`;
+      const title = div.querySelector("strong");
+      if(bestSellers.includes(title.textContent))
+        title.innerHTML += `<span class="best-seller">⭐ Best Seller</span>`;
+
+      if(newItems.includes(title.textContent))
+        div.insertAdjacentHTML("beforeend", `<span class="new-badge">NEW</span>`);
 
       section.appendChild(div);
     });
 
     fragment.appendChild(section);
   }
+
   menu.appendChild(fragment);
 }
 
 /* ================= TABS ================= */
-for(const cat in menuData){
-  const t=document.createElement("div");
-  t.className="tab";
-  t.textContent=cat;
-  t.onclick=()=>{
-    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-    t.classList.add("active");
-    document.querySelectorAll("section").forEach(s=>{
-      s.style.display=s.querySelector("h2").textContent===cat?"grid":"none";
+for(const category in menuData){
+  const tab = document.createElement("div");
+  tab.className = "tab";
+  tab.textContent = category;
+  tab.onclick = ()=>{
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    document.querySelectorAll("section").forEach(sec=>{
+      sec.style.display =
+        sec.querySelector("h2").textContent === category ? "grid" : "none";
     });
   };
-  tabs.appendChild(t);
+  tabsContainer.appendChild(tab);
 }
 document.querySelector(".tab")?.click();
 
 /* ================= CART ================= */
 function addToCart(name,price,size){
-  const item=cart.find(i=>i.name===name&&i.size===size);
-  item?item.qty++:cart.push({name,price,size,qty:1});
+  const item = cart.find(i=>i.name===name && i.size===size);
+  item ? item.qty++ : cart.push({name,price,size,qty:1});
   showToast("Added to cart 🧋");
   renderCart();
 }
@@ -116,29 +180,40 @@ function renderCart(){
   cartItems.innerHTML="";
   let total=0;
   cart.forEach((i,idx)=>{
-    total+=i.price*i.qty;
-    cartItems.innerHTML+=`<li>${i.name} ${i.size} x${i.qty}<span onclick="removeItem(${idx})">✕</span></li>`;
+    total += i.price * i.qty;
+    cartItems.innerHTML += `
+      <li>
+        ${i.name} ${i.size ? `(${i.size})` : ""} x${i.qty}
+        <span onclick="removeItem(${idx})">✕</span>
+      </li>`;
   });
-  cartTotal.textContent=`Total: ${total} EGP`;
-  localStorage.setItem("bambooCart",JSON.stringify(cart));
+  cartTotal.textContent = `Total: ${total} EGP`;
+  localStorage.setItem("bambooCart", JSON.stringify(cart));
 }
-function removeItem(i){cart.splice(i,1);renderCart();}
+
+function removeItem(i){
+  cart.splice(i,1);
+  renderCart();
+}
 
 /* ================= TOAST ================= */
-function showToast(t){
-  const toast=document.getElementById("toast");
-  toast.textContent=t;
+function showToast(text){
+  const toast = document.getElementById("toast");
+  toast.textContent = text;
   toast.classList.add("show");
   setTimeout(()=>toast.classList.remove("show"),2000);
 }
 
 /* ================= WHATSAPP ================= */
 function sendWhatsApp(){
-  if(!cart.length) return showToast("Cart is empty");
-  let msg="Hello Bamboo Team 👋\n";
-  cart.forEach(i=>msg+=`• ${i.name} ${i.size} x${i.qty}\n`);
-  window.open(`https://wa.me/201019634984?text=${encodeURIComponent(msg)}`);
+  if(!cart.length) return showToast("Your cart is empty");
+  let msg="Hello Bamboo Team 👋\nI would like to order:\n\n";
+  cart.forEach(i=>{
+    msg += `• ${i.name} ${i.size?`(${i.size})`:""} x${i.qty}\n`;
+  });
+  window.open(`https://wa.me/201019634984?text=${encodeURIComponent(msg)}`,"_blank");
 }
 
+/* ================= INIT ================= */
 renderMenu();
 renderCart();
