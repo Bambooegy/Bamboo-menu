@@ -41,7 +41,13 @@ const menuData = {
     ],"mix-flavor-one-ball.jpg"]
   ],
   "Milkshake":[
-    ["Strawberry Milkshake",140,165,"strawberry-milkshake.jpg"]
+    ["Strawberry Milkshake",140,165,"strawberry-milkshake.jpg"],
+  ["Chocolate Milkshake",140,165,"chocolate-milkshake.jpg"],
+  ["Vanilla Milkshake",140,165,"vanilla-milkshake.jpg"],
+  ["Oreo Milkshake",140,165,"oreo-milkshake.jpg"],
+  ["Raspberry Milkshake",140,165,"raspberry-milkshake.jpg"],
+  ["Yogurt Berry Milkshake",140,165,"yogurt-berry-milkshake.jpg"],
+  ["Mango Milkshake",140,165,"mango-milkshake.jpg"]
   ],
   "Iced Coffee":[
     ["Iced Latte",125,null,"iced-latte.jpg"],
@@ -217,5 +223,6 @@ function sendWhatsApp(){
 /* ================= INIT ================= */
 renderMenu();
 renderCart();
+
 
 
