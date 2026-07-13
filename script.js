@@ -35,24 +35,24 @@ const menuData = {
   ],
   "Ice Cream":[
     ["Mix Flavor Ice Cream",[
-      { label:"1 Scoop", price:55 },
-      { label:"2 Scoops", price:85 },
-      { label:"3 Scoops", price:115 }
+      { label:"1 Scoop", price:65 },
+      { label:"2 Scoops", price:100 },
+      { label:"3 Scoops", price:140 }
     ],"mix-flavor-one-ball.jpg"]
   ],
   "Milkshake":[
-    ["Strawberry Milkshake",140,165,"strawberry-milkshake.jpg"],
-  ["Chocolate Milkshake",140,165,"chocolate-milkshake.jpg"],
-  ["Vanilla Milkshake",140,165,"vanilla-milkshake.jpg"],
-  ["Oreo Milkshake",140,165,"oreo-milkshake.jpg"],
-  ["Raspberry Milkshake",140,165,"raspberry-milkshake.jpg"],
-  ["Yogurt Berry Milkshake",140,165,"yogurt-berry-milkshake.jpg"],
-  ["Mango Milkshake",140,165,"mango-milkshake.jpg"]
+    ["Strawberry Milkshake",165,185,"strawberry-milkshake.jpg"],
+  ["Chocolate Milkshake",165,185,"chocolate-milkshake.jpg"],
+  ["Vanilla Milkshake",165,185,"vanilla-milkshake.jpg"],
+  ["Oreo Milkshake",165,185,"oreo-milkshake.jpg"],
+  ["Raspberry Milkshake",165,185,"raspberry-milkshake.jpg"],
+  ["Yogurt Berry Milkshake",165,185,"yogurt-berry-milkshake.jpg"],
+  ["Mango Milkshake",165,185,"mango-milkshake.jpg"]
   ],
   "Iced Coffee":[
-    ["Iced Latte",125,null,"iced-latte.jpg"],
-    ["Iced Spanish Latte",135,null,"iced-spanish-latte.jpg"],
-    ["Iced Americano",90,null,"iced-americano.jpg"]
+    ["Iced Latte",145,null,"iced-latte.jpg"],
+    ["Iced Spanish Latte",155,null,"iced-spanish-latte.jpg"],
+    ["Iced Americano",110,null,"iced-americano.jpg"]
   ],
   "Hot Drinks":[
     ["Espresso",65,null,"espresso.jpg"],
