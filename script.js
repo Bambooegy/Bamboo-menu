@@ -76,11 +76,11 @@ const menuData = {
     ["Hot Chocolate",120,160,"hot-chocolate.jpg"]
   ],
   "Fresh Juices":[
-    ["Fresh Mango",85,null,"fresh-mango.jpg"],
-    ["Fresh Strawberry",85,null,"fresh-strawberry.jpg"],
-    ["Orange Juice",85,null,"orange-juice.jpg"],
+    ["Fresh Mango",100,null,"fresh-mango.jpg"],
+    ["Fresh Strawberry",100,null,"fresh-strawberry.jpg"],
+    ["Orange Juice",100,null,"orange-juice.jpg"],
     ["Lemon Mint",85,null,"lemon-mint.jpg"],
-    ["Banana With Milk",85,null,"banana-milkshake.jpg"]
+    ["Banana With Milk",100,null,"banana-milkshake.jpg"]
   ]
 };
 
