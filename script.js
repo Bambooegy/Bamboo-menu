@@ -1,5 +1,18 @@
 /* ================= MENU DATA ================= */
 const menuData = {
+
+  "BAMBOO Signature":[
+    ["COCO Mango",170,195,"coco-mango.jpg"],
+    ["Tropical Rainbow",170,195,"tropical-rainbow.jpg"],
+    ["Pink guava revive",170,195,"Pink-guava-revive.jpg"]
+  ],
+
+  "LEMONADE Series":[
+    ["Pink LEMONADE",165,180,"pink-lemonade.jpg"],
+    ["Golden LEMONADE",165,180,"Golden-lemonade.jpg"],
+    ["Royal Blue LEMONADE",168,180,"royal-blue-lemonade.jpg"]
+  ],
+
   "Coffee Boba":[
     ["Iced Latte Boba",150,180,"iced-latte-boba.jpg"],
     ["Dalgona Boba",170,195,"dalgona-boba.jpg"],
@@ -31,8 +44,10 @@ const menuData = {
     ["Mango Milk Boba",150,180,"mango-milk-boba.jpg"],
     ["Blueberry Milk Boba",150,180,"blueberry-milk-boba.jpg"],
     ["Strawberry Milk Boba",150,180,"strawberry-milk-boba.jpg"],
+    ["Mango Coconut Milk Boba",180,210,"mango-coconut-milk-boba.jpg"],
     ["Watermelon Milk Boba",150,180,"watermelon-milk-boba.jpg"]
   ],
+
   "Ice Cream":[
     ["Mix Flavor Ice Cream",[
       { label:"1 Scoop", price:65 },
