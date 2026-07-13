@@ -56,18 +56,21 @@ const menuData = {
     ],"mix-flavor-one-ball.jpg"]
   ],
   "Milkshake":[
-    ["Strawberry Milkshake",165,185,"strawberry-milkshake.jpg"],
+  ["Strawberry Milkshake",165,185,"strawberry-milkshake.jpg"],
   ["Chocolate Milkshake",165,185,"chocolate-milkshake.jpg"],
   ["Vanilla Milkshake",165,185,"vanilla-milkshake.jpg"],
   ["Oreo Milkshake",165,185,"oreo-milkshake.jpg"],
+  ["Caramel Milkshake",165,185,"caramel-milkshake.jpg"],
   ["Raspberry Milkshake",165,185,"raspberry-milkshake.jpg"],
   ["Yogurt Berry Milkshake",165,185,"yogurt-berry-milkshake.jpg"],
   ["Mango Milkshake",165,185,"mango-milkshake.jpg"]
   ],
   "Iced Coffee":[
-    ["Iced Latte",145,null,"iced-latte.jpg"],
-    ["Iced Spanish Latte",155,null,"iced-spanish-latte.jpg"],
-    ["Iced Americano",110,null,"iced-americano.jpg"]
+    ["Iced Latte",145,165,"iced-latte.jpg"],
+    ["Iced Spanish Latte",155,185,"iced-spanish-latte.jpg"],
+    ["Frappe Caramel",165,195,"frappe-caramel.jpg"],
+    ["Frappe Chocolate",165,195,"frappe-chocolate.jpg"],
+    ["Iced Americano",110,140,"iced-americano.jpg"]
   ],
   "Hot Drinks":[
     ["Espresso",65,null,"espresso.jpg"],
