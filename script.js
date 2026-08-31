@@ -23,8 +23,8 @@ const menuData = {
     ["Popping Boba Fruit Tea",130,160,"popping-boba-fruit-tea.jpg"]
   ],
   "Milk Tea Boba":[
-    ["Classic Boba",120,155,"classic-boba.jpg"],
-    ["Brown Sugar Milk Boba",135,165,"brown-sugar-boba.jpg"]
+    ["Classic Boba",135,165,"classic-boba.jpg"],
+    ["Brown Sugar Milk Boba",155,185,"brown-sugar-boba.jpg"]
   ],
   "Taro Boba":[
     ["Classic Taro",150,180,"classic-taro.jpg"],
@@ -36,16 +36,16 @@ const menuData = {
     ["Strawberry Matcha Latte Boba",175,190,"strawberry-matcha-latte-boba.jpg"]
   ],
   "Milk Boba":[
-    ["Oreo Milk Boba",160,195,"oreo-milk-boba.jpg"],
-    ["Lotus Milk Boba",160,195,"lotus-milk-boba.jpg"],
-    ["Chocolate Milk Boba",155,190,"chocolate-milk-boba.jpg"],
-    ["Caramel Milk Boba",155,190,"caramel-milk-boba.jpg"],
+    ["Oreo Milk Boba",180,205,"oreo-milk-boba.jpg"],
+    ["Lotus Milk Boba",180,205,"lotus-milk-boba.jpg"],
+    ["Chocolate Milk Boba",160,190,"chocolate-milk-boba.jpg"],
+    ["Caramel Milk Boba",160,190,"caramel-milk-boba.jpg"],
     ["Red Velvet Milk Boba",160,195,"red-velvet-milk-boba.jpg"],
-    ["Mango Milk Boba",150,180,"mango-milk-boba.jpg"],
-    ["Blueberry Milk Boba",150,180,"blueberry-milk-boba.jpg"],
-    ["Strawberry Milk Boba",150,180,"strawberry-milk-boba.jpg"],
+    ["Mango Milk Boba",160,190,"mango-milk-boba.jpg"],
+    ["Blueberry Milk Boba",160,190,"blueberry-milk-boba.jpg"],
+    ["Strawberry Milk Boba",160,190,"strawberry-milk-boba.jpg"],
     ["Mango Coconut Milk Boba",180,210,"mango-coconut-milk-boba.jpg"],
-    ["Watermelon Milk Boba",150,180,"watermelon-milk-boba.jpg"]
+    ["Watermelon Milk Boba",160,190,"watermelon-milk-boba.jpg"]
   ],
 
   "Ice Cream":[
